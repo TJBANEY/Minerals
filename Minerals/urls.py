@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-import views
+from Minerals.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^?$', views.mineral_list, name='mineral_list')
+    url(r'^$', mineral_list, name='mineral_list'),
+    url(r'^mineral/(?P<id>.*)?$', mineral_detail, name='mineral_detail'),
 ]

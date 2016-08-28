@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
   <div class="bounds bounds--small">
@@ -24,40 +26,40 @@
       <p class="logo__text text-centered">They're not rocks!</p>
     </div>
     <div class="grid-100 mineral__container">
-      <h1 class="mineral__name">Mineral Name</h1>
+      <h1 class="mineral__name">{{ mineral.name|upper }}</h1>
       <div class="mineral__image-bg">
         <img class="mineral__image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Augelite-au13c.jpg/240px-Augelite-au13c.jpg">
-        <p class="mineral__caption">Mineral caption goes here</p>
+        <p class="mineral__caption">{{ mineral.image_caption|upper }}</p>
       </div>
       <div class="mineral__table-container">
         <table class="mineral__table">
           <tr>
             <td class="mineral__category">Category</td>
-            <td>Mineral category</td>
+            <td>{{ mineral.category|upper }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Formula</td>
-            <td class="mineral__formula">Ca<sub>4</sub>(Al,Fe,Mg)<sub>10</sub>Si<sub>12</sub>O<sub>35</sub>(OH)<sub>12</sub>CO<sub>3</sub>·12H<sub>2</sub>O</td>
+            <td class="mineral__formula">{{ mineral.formula|upper|safe }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Strunz Classification</td>
-            <td>09.DB.45</td>
+            <td>{{ mineral.strunz_classification|upper }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Unit Cell</td>
-            <td>a = 14.690(15) Å, b = 16.872(15) Å, c = 5.170(15) Å, Z = 2</td>
+            <td>{{ mineral.unit_cell|upper }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Color</td>
-            <td>Blue to blue-green</td>
+            <td>{{ mineral.color|upper }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Crystal Habit</td>
-            <td>fibrous</td>
+            <td>{{ mineral.crystal_symmetry|upper }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Mohs Scale Hardness</td>
-            <td>3</td>
+            <td>{{ mineral.mohs_scale|upper }}</td>
           </tr>
         </table>
       </div>
